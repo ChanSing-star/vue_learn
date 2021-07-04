@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Object.defineProperty</title>
+</head>
+<body>
+  <script>
+    let data = {
+      msg: 'xing'
+    }
+
+    let vm = {}
+
+    Object.defineProperty(vm, 'name', {
+      set(newValue) {
+        data.msg = newValue
+        console.log('msg have change')
+      },
+      get() {
+        console.log('msg have get')
+        return data.msg
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>模板语法</title>
+</head>
+<body>
+  <script src="../js/vue.js"></script>
+  <div id="root">
+    <h2>插值语法</h2>
+    <h4>你好，{{msg}}</h4>
+    <h4>你好，{{msg.toUpperCase()}}</h4>
+    <hr>
+    <a :href="url">点我去学习</a>
+  </div>
+  <script>
+    new Vue({
+      el: '#root',
+      data: {
+        msg: 'xinga',
+        url: 'http://www.baidu.com'
+      }
+    })
+  </script>
+</body>
+</html>

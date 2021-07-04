@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>MVVM模型</title>
+</head>
+
+<body>
+  <div id='root'>
+    <h2>hello, {{msg}}</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      // el:'#root',
+      data() {
+        console.log(this)
+        return {
+          msg: 'xing'
+        }
+      }
+    })
+    vm.$mount('#root')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>data和el的写法</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>hello,{{msg}}</p>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    // el第一种写法
+    // const app = new Vue({
+    //   el: '#app',
+    //   data: {
+    //     msg: 'xing'
+    //   }
+    // })
+    // el第二种写法
+    // const app = new Vue({
+    //   data: {
+    //     msg: 'xing'
+    //   }
+    // })
+    // app.$mount('#app')
+
+    // data的第一种写法
+    // const app = new Vue({
+    //   el: '#app',
+    //   data: {
+    //     msg: 'xing'
+    //   }
+    // })
+    // data的第二种写法
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'xing'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

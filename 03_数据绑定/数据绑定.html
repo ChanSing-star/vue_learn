@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>数据绑定</title>
 </head>
-
 <body>
-  <!-- 准备好一个容器 -->
   <div id="root">
-    <h1>hello,{{message}}</h1>
+    <input type="text" v-model='msg'>
+    <h2>{{msg}}</h2>
+    <input type="text" :value="msg">
   </div>
   <script src="../js/vue.js"></script>
   <script>
-    const app = new Vue({
-      el: "#root",
+    new Vue({
+      el: '#root',
       data: {
-        message: 'xing'
+        msg: 'xing'
       }
     })
   </script>
 </body>
-
 </html>
