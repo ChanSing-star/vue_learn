@@ -7,9 +7,25 @@
 </head>
 
 <body>
+  <div id="app">
+    {{msg}}
+    <!-- {{age}} -->
+  </div>
+  <script src="./js/vue.js"></script>
   <script>
-    a = 1
-    console.log(a)
+    let data = {
+      msg: ['1','2','3'],
+      // age: ''
+    }
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return data
+      }
+    })
+    app.msg[2] = 2
+    // Vue.set(app, 'msg', 1)
+    console.log(app)
   </script>
 </body>
 
