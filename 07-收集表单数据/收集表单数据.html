@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>收集表单数据</title>
+</head>
+
+<body>
+  <div id="app">
+    <form>
+      账号：<input type="text" v-model="userInfo.account"><br>
+      密码：<input type="password" v-model="userInfo.psw"><br>
+      性别：
+      男<input type="radio" name="sex" v-model="userInfo.sex" value="male">
+      女<input type="radio" name="sex" v-model="userInfo.sex" value="female"><br>
+      爱好：
+      抽烟<input type="checkbox" name="hobby" v-model="userInfo.hobby" value="抽烟">
+      喝酒<input type="checkbox" name="hobby" v-model="userInfo.hobby" value="喝酒">
+      烫头<input type="checkbox" name="hobby" v-model="userInfo.hobby" value="烫头"><br>
+      所属校区：<select v-model="userInfo.city">
+        <option value="">请选择校区</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+        <option value="shenzhen">深圳</option>
+        <option value="wuhan">武汉</option>
+      </select><br>
+      其他信息：<textarea cols="30" rows="10" v-model="userInfo.other"></textarea><br>
+      <input type="checkbox" name="xieyi" v-model="userInfo.agree">阅读并接受<a href="">《用户协议》</a><br>
+      <button @click.prevent="submit">提交</button>
+      <button @click.prevent="reset">重置</button>
+    </form>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        userInfo: {
+          account: '',
+          psw: '',
+          sex: '',
+          hobby: [],
+          city: '',
+          other: '',
+          agree: false
+        }
+
+      },
+      methods: {
+        submit() {
+          console.log(this.userInfo)
+        },
+        reset() {
+          this.userInfo = {
+            account: '',
+            psw: '',
+            sex: '',
+            hobby: [],
+            city: '',
+            other: '',
+            agree: false
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -9,24 +9,39 @@
 <body>
   <div id="app">
     {{msg}}
-    <!-- {{age}} -->
+    {{message}}<br>
+    <button @click="hhh">hhh</button><br>
+    <button @click="hhh2">hhh2</button>
   </div>
   <script src="./js/vue.js"></script>
   <script>
     let data = {
-      msg: ['1','2','3'],
+      msg: ['1', '2', '3'],
+      message: {
+        name: 'xing',
+        age: 18
+      }
       // age: ''
     }
     const app = new Vue({
       el: '#app',
       data() {
         return data
+      },
+      methods: {
+        hhh() {
+          this.msg[0] = 2
+          console.log(this)
+        },
+        hhh2() {
+          this.message.name = 'ok'
+          console.log(this)
+        }
       }
     })
-    app.msg[2] = 2
-    // Vue.set(app, 'msg', 1)
-    console.log(app)
+
   </script>
+
 </body>
 
 </html>

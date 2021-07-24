@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>列表过滤</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" placeholder="请输入" v-model="msg">
+    <ul>
+      <li v-for="(item, index) in fmtPersons" :key="item.id">{{item.name}}</li>
+    </ul>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        persons: [
+          { id: '001', name: '马冬梅' },
+          { id: '002', name: '周冬雨' },
+          { id: '003', name: '周杰伦' },
+          { id: '004', name: '温兆伦' }
+        ],
+        msg: ''
+      },
+      computed: {
+        fmtPersons() {
+          const { persons, msg } = this
+          return persons.filter(item => {
+            return item.name.indexOf(msg) !== -1
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

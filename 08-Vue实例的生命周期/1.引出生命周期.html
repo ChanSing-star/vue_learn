@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>1.引出生命周期</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2 :style="{opacity, color}">分手了怎么办</h2>
+    <button @click="death">不活了</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        opacity: 1,
+        color: 'red'
+      },
+      methods: {
+        death() {
+          this.$destroy()
+        }
+      },
+      beforeDestroy() {
+        clearInterval(this.timer)
+      },
+      mounted() {
+        this.timer = setInterval(() => {
+          console.log('定时器的回调正在执行')
+          this.opacity -= 0.01
+          if (this.opacity <= 0) this.opacity = 1
+        }, 20)
+      }
+    })
+  </script>
+</body>
+
+</html>
