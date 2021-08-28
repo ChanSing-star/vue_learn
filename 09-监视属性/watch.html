@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>test2</title>
+</head>
+
+<body>
+  <div id="app">
+    a: {{ msg.a }}<br />
+    <button @click="aClick">a变化</button><br />
+    b: {{ msg.b }}<br />
+    <button @click="bClick">b变化</button><br />
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        msg: {
+          a: 1,
+          b: 1,
+        },
+      },
+      methods: {
+        aClick() {
+          this.msg.a++;
+        },
+        bClick() {
+          this.msg.b++;
+        },
+      },
+      watch: {
+        // msg: {
+        //   handler() {
+        //     console.log(this.msg)
+        //   },
+        //   deep: true
+        // }
+        // msg() {
+        //   console.log('修改啦')
+        // }
+      },
+    });
+    // 1.正常写
+    // app.$watch('msg', {
+    //   immediate: true,
+    //   deep: true,
+    //   handler() {
+    //     console.log('hhh')
+    //   }
+    // })
+    // 2.简写
+    app.$watch("msg", function () {
+      console.log("hhh");
+    });
+  </script>
+</body>
+
+</html>

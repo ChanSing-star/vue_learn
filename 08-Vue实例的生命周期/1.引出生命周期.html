@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>1.引出生命周期</title>
 </head>
 
@@ -17,24 +17,24 @@
       el: "#app",
       data: {
         opacity: 1,
-        color: 'red'
+        color: "red",
       },
       methods: {
         death() {
-          this.$destroy()
-        }
+          this.$destroy();
+        },
       },
       beforeDestroy() {
-        clearInterval(this.timer)
+        clearInterval(this.timer);
       },
       mounted() {
         this.timer = setInterval(() => {
-          console.log('定时器的回调正在执行')
-          this.opacity -= 0.01
-          if (this.opacity <= 0) this.opacity = 1
-        }, 20)
-      }
-    })
+          console.log("定时器的回调正在执行");
+          this.opacity -= 0.01;
+          if (this.opacity <= 0) this.opacity = 1;
+        }, 20);
+      },
+    });
   </script>
 </body>
 

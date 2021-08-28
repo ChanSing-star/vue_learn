@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>绑定样式</title>
+  <style>
+    .active {
+      background-color: red;
+    }
+
+    .text-danger {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1.绑定Class -->
+    <!-- 对象语法 -->
+    <h2 :class="{ active: isActive, 'text-danger': hasError }">你好啊</h2>
+    <h2 :class="classObject">你好啊</h2>
+    <!-- 数组语法 -->
+    <h2 :class="[activeClass, errorClass]">你好啊</h2>
+    <!-- 2.绑定Style -->
+    <!-- 对象语法 -->
+    <h2 :style="{ color: activeColor, fontSize: fontSize + 'px' }">哈哈哈</h2>
+    <!-- 数组语法 -->
+    <h2 :style="[baseStyles, overridingStyles]">哈哈哈</h2>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        isActive: true,
+        hasError: true,
+        classObject: {
+          active: true,
+          'text-danger': true
+        },
+        activeClass: 'active',
+        errorClass: 'text-danger',
+        activeColor: 'orange',
+        fontSize: 30,
+        baseStyles: {
+          fontSize: '30px'
+        },
+        overridingStyles: {
+          color: 'red'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
